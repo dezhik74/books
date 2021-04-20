@@ -16,7 +16,7 @@ class BookListSerializer(serializers.ModelSerializer):
         return value
 
     def validate_author(self,value):
-        accepted_authors = ['Пушкин А.С.', 'Толстой Л.Н.', 'Грибоедов А.С', 'Островский А.Н.']
+        accepted_authors = ['Пушкин А.С.', 'Толстой Л.Н.', 'Грибоедов А.С.', 'Островский А.Н.']
 
         if value not in accepted_authors:
             raise serializers.ValidationError("Только классика, только хардкор!")

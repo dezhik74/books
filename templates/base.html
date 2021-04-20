@@ -1,13 +1,42 @@
 <!doctype html>
 <html lang="ru">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <title>Книжная полка</title>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}" type="text/css">
 <body>
-    <h1>Наш форнтенд</h1>
+    <h1 class="is-size-1 has-text-centered">Книжная полка</h1>
+    <h3 class="has-text-centered">Кроме Пушкина А.С., Толстого Л.Н., Грибоедова А.С, Островского А.Н. ничего не предлагать</h3>
+    <div class="container" >
+        <table id="maintable" class="table container">
+            <tr>
+                <th>Автор</th>
+                <th>Название</th>
+                <th>Дата выхода</th>
+            </tr>
+        </table>
+        <div class="container">
+            <form action="" method="post" id="my_form">
+                <label for="author" class="label">Автор </label>
+                <input id="author" type="text" name="" value="" class="input">
+
+                <label for="title" class="label">Название</label>
+                <input id="title" type="text" name="" value="" class="input">
+
+                <label for="year_of_create" class="label">Дата выхода</label>
+                <input id="year_of_create" type="text" name="" value="" class="input">
+
+
+                <input type="submit" value="Добавить книжку" id="OK-button" class="button is-primary mt-5">
+            </form>
+        </div>
+    </div>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
