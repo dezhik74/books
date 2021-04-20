@@ -23,10 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fpt1zdq=hqq^nn)9c#!-f!si4^9+%gq2r(=4er*dg8derc$@ny'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.getenv('APP_LAUNCH_SITE') == 'docker':
+    DEBUG = False
+else:
+    DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','*']
 
 # Application definition
 
@@ -83,7 +86,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-DATABASES = {
+
+if os.getenv('APP_LAUNCH_SITE') == 'docker':	
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'bookbase',
+            'USER': 'sergey',
+            'PASSWORD': '1234',
+            'HOST': '0.0.0.0',
+            'PORT': '5432',
+        }
+    }
+else:
+   DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bookbase',
