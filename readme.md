@@ -10,5 +10,14 @@
 
 # Описание API
 /list [GET]- Список книг  
-/create [POST] - созданеи новой книги  
+/create [POST] - создание новой книги  
 / [GET] - фронтэнд
+
+# Развертывание в контейнерах
+1. docker-compose up -d
+2. docker exec -ti [id контейнера с именем books_web3] /bin/ash
+3. там в папке /code/ запускаем python manage.py createsuperuser 
+4. можно заходить в админку (/admin/), но, в принципе, работает и без нее
+5. Приложение на 84 порту!!!
+6. База одноразовая, если надо многоразовую, делаем в разделе volumes раздела базы docker-compose.yml - /my/own/datadir:/var/lib/postgresql/data
+
