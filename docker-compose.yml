@@ -13,14 +13,14 @@ services:
     expose:
        - 8084
     depends_on:
-      - db
+      - nginx2
 
   nginx2:
     container_name: 'srv2'
     restart: always
     image: nginx:latest
     depends_on: 
-      - web3
+      - db
     ports:
       - 84:80
     volumes:

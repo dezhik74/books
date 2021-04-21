@@ -94,7 +94,7 @@ if os.getenv('APP_LAUNCH_SITE') == 'docker':
             'NAME': 'bookbase',
             'USER': 'sergey',
             'PASSWORD': '1234',
-            'HOST': '0.0.0.0',
+            'HOST': 'db',
             'PORT': '5432',
         }
     }
@@ -148,6 +148,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

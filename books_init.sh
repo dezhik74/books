@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "PREPARE DATABASE..."
 
@@ -10,8 +10,8 @@ python manage.py collectstatic --noinput
 # echo "Получение дампа данных только при первом запуске контейнера"
 # python manage.py loaddata datadump.json
 
-# echo "Apply database migrations... только при первом запуске контейнера"
-# python manage.py migrate
+echo "Apply database migrations... только при первом запуске контейнера"
+python manage.py migrate
 
 echo "Starting server..."
 #echo "Django development server..."

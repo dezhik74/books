@@ -43,7 +43,7 @@ const newBook = async function(author, title, year_of_create){
             'title' : title,
             'year_of_create': year_of_create
     }
-    let response = await fetch('/create', {
+    let response = await fetch('http://localhost/create', {
         method : 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8',
@@ -88,7 +88,7 @@ function clearTable(){
 
 function init() {
     clearTable();
-    loadList('/list').then(function (data) {
+    loadList('http://localhost/list/').then(function (data) {
         data.forEach(makeTableRow)
     })
 }
